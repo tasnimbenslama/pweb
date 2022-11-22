@@ -1,0 +1,33 @@
+{% extends 'fron.html.twig' %}
+{% block body %}
+    <table border="2">
+        <tr>
+            <th>ID</th>
+            <th>TITRE</th>
+            <th>DESCRIPTION</th>
+            <th>DATE DE DEBUT</th>
+            <th>DATE DE FIN</th>
+            <th>PRIX</th>
+            <th>PLACES DISPONIBLES</th>
+            <th>NIVEAU</th>
+
+
+        </tr>
+        {% for i in for %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.titre }}</td>
+                <td>{{ i.description }}</td>
+                <td>{{ i.datedebut|date("d-m-Y")}}</td>
+                <td>{{ i.datefin|date("d-m-Y") }}</td>
+                <td>{{ i.prix }}</td>
+                <td>{{ i.nbplaces }}</td>
+                <td>{{ i.niveau }}</td>
+
+
+
+            </tr>
+        {% endfor %}
+
+    </table>
+{% endblock %}
