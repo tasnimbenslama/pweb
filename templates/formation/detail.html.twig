@@ -1,0 +1,37 @@
+{% extends 'blanc.html.twig' %}
+
+{% block body %}
+
+        <table border="3">
+                <tr>
+                        <th>ID</th>
+                        <th>TITRE</th>
+                        <th>DESCRIPTION</th>
+                        <th>DATE DE DEBUT</th>
+                        <th>DATE DE FIN</th>
+                        <th>PRIX</th>
+                        <th>PLACES DISPONIBLES</th>
+                        <th>NIVEAU</th>
+                </tr>
+
+                        <tr>
+                                <td>{{ formation.id }}</td>
+                                <td>{{ formation.titre }}</td>
+                                <td>{{ formation.description }}</td>
+                                <td>{{ formation.datedebut|date("d-m-Y")}}</td>
+                                <td>{{ formation.datefin|date("d-m-Y") }}</td>
+                                <td>{{ formation.prix }}</td>
+                                <td>{{ formation.nbplaces }}</td>
+                                <td>{{ formation.niveau }}</td>
+
+                        </tr>
+
+        </table>
+        <img src={{ asset('uploads/formations/'~ formation.detail) }} width="50%"/>
+
+
+{% endblock %}
+{% block footer %}
+{% endblock %}
+
+

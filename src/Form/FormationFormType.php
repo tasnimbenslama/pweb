@@ -11,6 +11,8 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
+
 
 class FormationFormType extends AbstractType
 {
@@ -28,18 +30,25 @@ class FormationFormType extends AbstractType
             ->add('prix')
             ->add('nbplaces')
             ->add('niveau')
+            ->add('detail', FileType::class, [
 
-
-            ->add('images', FileType::class,[
-                'label' => false,
-                'multiple' => true,
                 'mapped' => false,
-                'required' => false
+
+                'required' => false,
+
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1024k',
+                        'mimeTypes' => [
+                            'image/gif',
+                            'image/jpeg',
+                            'image/png',
+                            'image/jpg',
+                        ],
+                        'mimeTypesMessage' => 'Please upload a valid Image',
+                    ])
+                ],
             ])
-
-
-
-
             ->add('enregistrer',SubmitType::class)
         ;
     }

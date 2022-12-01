@@ -22,7 +22,7 @@ class Formation
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message:"Titre est required")
+
      */
 
     private $titre;
@@ -62,6 +62,22 @@ class Formation
      * @ORM\Column(type="string", length=255)
       */
     private $niveau;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $detail;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $jaime;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $jaimepas;
+
 
     public function __construct()
     {
@@ -182,4 +198,44 @@ class Formation
 
         return $this;
     }
+
+    public function getDetail(): ?string
+    {
+        return $this->detail;
+    }
+
+    public function setDetail(string $detail): self
+    {
+        $this->detail = $detail;
+
+        return $this;
+    }
+
+    public function getJaime(): ?int
+    {
+        return $this->jaime;
+    }
+
+    public function setJaime(int $jaime): self
+    {
+        $this->jaime = $jaime;
+
+        return $this;
+    }
+
+    public function getJaimepas(): ?int
+    {
+        return $this->jaimepas;
+    }
+
+    public function setJaimepas(?int $jaimepas): self
+    {
+        $this->jaimepas = $jaimepas;
+
+        return $this;
+    }
+
+
+
+
 }

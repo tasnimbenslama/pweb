@@ -1,10 +1,14 @@
-{% extends 'fron.html.twig' %}
+{% extends 'back.html.twig' %}
 {% block body %}
-<h1> ajouter ou modifier  une formation ??</h1>
+    <h1> ajouter  une formation ??</h1>
 
-
-
-{{form_start(f,{'attr': {'novalidate': 'novalidate'}} )}}
+ <center >  {% for message in app.flashes('notice') %}
+        <div class="flash-notice">
+            {{ message }}
+        </div>
+    {% endfor %}
+ </center>
+    {{form_start(f,{'attr': {'novalidate': 'novalidate'}} )}}
 
     <table>
     <tr>
@@ -42,10 +46,20 @@
             <td> {{ form_widget(f.niveau)}} </td>
             <td> {{ form_errors(f.niveau) }} </td>
         </tr>
+        <tr>
+            <td>
+                {{ form_row(f.detail) }}</td>
+        </tr>
+
+
     </table>
 <br>
 
 {{ form_widget (f. enregistrer) }}
 
 {{form_end( f) }}
+{% endblock %}
+{% block title %} Ajout Formation {% endblock %}
+{% block footer %}
+
 {% endblock %}

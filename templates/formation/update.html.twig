@@ -1,0 +1,65 @@
+{% extends 'back.html.twig' %}
+{% block body %}
+    <h1>  modifier  une formation ??</h1>
+
+    <center >  {% for message in app.flashes('notice') %}
+            <div class="flash-notice">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </center>
+    {{form_start(f,{'attr': {'novalidate': 'novalidate'}} )}}
+
+    <table>
+        <tr>
+            <td> {{ form_label(f.titre,"TITRE:") }} </td>
+            <td> {{ form_widget(f.titre) }} </td>
+            <td> {{ form_errors(f.titre) }} </td>
+        </tr>
+        <tr>
+            <td> {{ form_label(f.description,"DESCRIPTION:") }} </td>
+            <td> {{ form_widget(f.description)}} </td>
+            <td> {{ form_errors(f.description) }} </td>
+        </tr>
+        <tr>
+            <td> {{ form_label(f.datedebut,"DATE DEBUT:") }} </td>
+            <td> {{ form_widget(f.datedebut)}} </td>
+            <td> {{ form_errors(f.datedebut) }} </td>
+        </tr>
+        <tr>
+            <td> {{ form_label(f.datefin,"DATE FIN:") }} </td>
+            <td> {{ form_widget(f.datefin)}} </td>
+            <td> {{ form_errors(f.datefin) }} </td>
+        </tr>
+        <tr>
+            <td> {{ form_label(f.prix,"PRIX:") }} </td>
+            <td> {{ form_widget(f.prix)}} </td>
+            <td> {{ form_errors(f.prix) }} </td>
+        </tr>
+        <tr>
+            <td> {{ form_label(f.nbplaces,"PLACES DISPONIBLES: ") }} </td>
+            <td> {{ form_widget(f.nbplaces)}} </td>
+            <td> {{ form_errors(f.nbplaces) }} </td>
+        </tr>
+        <tr>
+            <td> {{ form_label(f.niveau,"NIVEAU:") }} </td>
+            <td> {{ form_widget(f.niveau)}} </td>
+            <td> {{ form_errors(f.niveau) }} </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_row(f.detail) }}</td>
+        </tr>
+
+
+    </table>
+    <br>
+
+    {{ form_widget (f. enregistrer) }}
+
+    {{form_end( f) }}
+{% endblock %}
+{% block title %}EDIT Formation {% endblock %}
+{% block footer %}
+
+{% endblock %}
